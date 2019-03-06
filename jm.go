@@ -30,6 +30,10 @@ func (j *jm) main(fd *os.File) {
 			break
 		}
 
+		if l[len(l)-1] == '\n' {
+			l = l[:len(l)-1]
+		}
+
 		ls := strings.FieldsFunc(l, func(r rune) bool {
 			return r == rune((*j.delimiter)[0])
 		})
